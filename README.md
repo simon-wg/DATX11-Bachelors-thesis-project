@@ -1,6 +1,24 @@
-# Running the Application
+# Bachelor's thesis project
 
-## Running with npm and go (Recommended)
+This is an archive of my bachelor's thesis project.
+
+The project was to create an authentication system for the Tillitis Tkey, which would allow one to log in to e.g. websites.
+This project has a working PoC which in rough terms works as follows:
+```
+Tkey --- Daemon --- Application
+  |         | <------ | Send challenge
+  | <------ |         | Request challenge signature
+  | ------> |         | Tkey signs challenge
+  |         | ------> | Application verifies challenge
+```
+
+The purpose of the thesis was to show how it's possible to synergize the limited feature-set of the hardware security key with user created application in order to achieve a working complex secure authentication scheme.
+
+The final thesis can be read in docs/Thesis.pdf
+
+## Running the Application
+
+### Running with npm and go (Recommended)
 
 In order to run the application locally for development do the following:
 
@@ -34,7 +52,13 @@ OR
    go run ./cmd
    ```
 
-## Running with docker
+5. In a third terminal run the daemon by navigating to /client and running:
+
+    ```sh
+    go run ./cmd
+    ```
+
+### Running with docker
 
 In order to run the application with docker, follow these steps:
 
@@ -46,7 +70,7 @@ In order to run the application with docker, follow these steps:
    docker compose up
    ```
 
-# Testing the Application
+## Testing the Application
 
 To test the application and get the coverage percentage, follow these steps:
 
@@ -59,7 +83,7 @@ To test the application and get the coverage percentage, follow these steps:
    go test -cover -coverpkg=chalmers/tkey-group22/application/internal ./tests
    ```
 
-# Viewing documentation
+## Viewing documentation
 
 To view the documentation in localhost:
 
